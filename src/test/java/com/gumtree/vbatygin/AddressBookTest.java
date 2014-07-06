@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class AddressBookTest {
-    private final SimpleDateFormat format = new SimpleDateFormat("dd/mm/yyyy");
+    public static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd/mm/yyyy");
 
     @Test(expected = IllegalArgumentException.class)
     public void testAddNull() {
@@ -40,10 +40,10 @@ public class AddressBookTest {
     @Test
     public void testGetOldest() throws ParseException {
         final AddressBook addressBook = new AddressBook();
-        addressBook.add(new Person("test", Gender.MALE, format.parse("20/01/1990")));
-        addressBook.add(new Person("test2", Gender.MALE, format.parse("20/01/1931")));
-        addressBook.add(new Person("test3", Gender.FEMALE, format.parse("20/02/1931")));
-        addressBook.add(new Person("test4", Gender.MALE, format.parse("20/01/1931")));
+        addressBook.add(new Person("test", Gender.MALE, DATE_FORMAT.parse("20/01/1990")));
+        addressBook.add(new Person("test2", Gender.MALE, DATE_FORMAT.parse("20/01/1931")));
+        addressBook.add(new Person("test3", Gender.FEMALE, DATE_FORMAT.parse("20/02/1931")));
+        addressBook.add(new Person("test4", Gender.MALE, DATE_FORMAT.parse("20/01/1931")));
         Assert.assertEquals("test2", addressBook.getOldestPerson().getName());
     }
 
@@ -57,38 +57,38 @@ public class AddressBookTest {
     @Test
     public void testHowManyDaysOlder() throws ParseException {
         final AddressBook addressBook = new AddressBook();
-        addressBook.add(new Person("test", Gender.MALE, format.parse("20/01/1990")));
-        addressBook.add(new Person("test2", Gender.MALE, format.parse("20/01/1991")));
+        addressBook.add(new Person("test", Gender.MALE, DATE_FORMAT.parse("20/01/1990")));
+        addressBook.add(new Person("test2", Gender.MALE, DATE_FORMAT.parse("20/01/1991")));
         Assert.assertEquals(365, addressBook.howManyDaysOlder("test", "test2"));
     }
 
     @Test
     public void testHowManyDaysOlderReversed() throws ParseException {
         final AddressBook addressBook = new AddressBook();
-        addressBook.add(new Person("test", Gender.MALE, format.parse("20/01/1990")));
-        addressBook.add(new Person("test2", Gender.MALE, format.parse("20/01/1991")));
+        addressBook.add(new Person("test", Gender.MALE, DATE_FORMAT.parse("20/01/1990")));
+        addressBook.add(new Person("test2", Gender.MALE, DATE_FORMAT.parse("20/01/1991")));
         Assert.assertEquals(-365, addressBook.howManyDaysOlder("test2", "test"));
     }
 
     @Test
     public void testHowManyDaysOlderEqual() throws ParseException {
         final AddressBook addressBook = new AddressBook();
-        addressBook.add(new Person("test", Gender.MALE, format.parse("20/01/1991")));
-        addressBook.add(new Person("test2", Gender.MALE, format.parse("20/01/1991")));
+        addressBook.add(new Person("test", Gender.MALE, DATE_FORMAT.parse("20/01/1991")));
+        addressBook.add(new Person("test2", Gender.MALE, DATE_FORMAT.parse("20/01/1991")));
         Assert.assertEquals(0, addressBook.howManyDaysOlder("test2", "test"));
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testHowManyDaysNonexistentFirst() throws ParseException {
         final AddressBook addressBook = new AddressBook();
-        addressBook.add(new Person("test", Gender.MALE, format.parse("20/01/1991")));
+        addressBook.add(new Person("test", Gender.MALE, DATE_FORMAT.parse("20/01/1991")));
         addressBook.howManyDaysOlder("stranger", "test");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testHowManyDaysNonexistentSecond() throws ParseException {
         final AddressBook addressBook = new AddressBook();
-        addressBook.add(new Person("test", Gender.MALE, format.parse("20/01/1991")));
+        addressBook.add(new Person("test", Gender.MALE, DATE_FORMAT.parse("20/01/1991")));
         addressBook.howManyDaysOlder("test", "stranger");
     }
 

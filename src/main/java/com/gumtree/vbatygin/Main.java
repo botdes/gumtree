@@ -2,12 +2,13 @@ package com.gumtree.vbatygin;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStreamReader;
 
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
         final String path = "./data/address-book.csv";
-        AddressBook addressBook = new AddressBookParser().parse(new FileInputStream(path));
+        AddressBook addressBook = new AddressBookParser().parse(new InputStreamReader(new FileInputStream(path)), new AddressBook());
 
         System.out.println("How many males are in the address book? " + addressBook.countByGender(Gender.MALE) );
 
