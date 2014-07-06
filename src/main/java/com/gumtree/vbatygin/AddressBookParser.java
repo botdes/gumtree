@@ -7,11 +7,6 @@ import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * User: vbatygin
- * Date: 06.07.14
- * Time: 17:22
- */
 public class AddressBookParser {
     private final SimpleDateFormat format = new SimpleDateFormat("dd/mm/yy");
 

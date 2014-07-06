@@ -3,11 +3,6 @@ package com.gumtree.vbatygin;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
-/**
- * User: vbatygin
- * Date: 06.07.14
- * Time: 17:22
- */
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {

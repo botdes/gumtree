@@ -2,11 +2,6 @@ package com.gumtree.vbatygin;
 
 import java.util.Date;
 
-/**
- * User: vbatygin
- * Date: 06.07.14
- * Time: 17:20
- */
 public class Person {
     private final String name;
     private final Gender gender;
