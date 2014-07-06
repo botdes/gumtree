@@ -12,9 +12,7 @@ public class Main {
 
         System.out.println("How many males are in the address book? " + addressBook.countByGender(Gender.MALE) );
 
-        final Person oldestPerson = addressBook.getOldestPerson();
-        System.out.println("Who is the oldest person in the address book? " + oldestPerson.getName() + " "
-        + oldestPerson.getGender() + " " + oldestPerson.getDayOfBirth());
+        System.out.println("Who is the oldest person in the address book? " + addressBook.getOldestPerson().getName());
 
         System.out.println("How many days older is Bill than Paul? "
             + addressBook.howManyDaysOlder("Bill McKnight", "Paul Robinson") );
