@@ -13,4 +13,8 @@ public class AddressBook {
     public int howManyDaysOlder(String firstPerson, String secondPerson) {
         throw new UnsupportedOperationException();
     }
+
+    public void add(final Person person) {
+        throw new UnsupportedOperationException();
+    }
 }
