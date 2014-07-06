@@ -4,13 +4,14 @@ public class AddressBook {
 
     private int maleCount = 0;
     private int femaleCount = 0;
-
-    public Person getOldestPerson() {
-        throw new UnsupportedOperationException();
-    }
+    private Person oldest = null;
 
     public int countByGender(Gender gender) {
        return gender == Gender.MALE ? maleCount : femaleCount;
+    }
+
+    public Person getOldestPerson() {
+        return oldest;
     }
 
     public int howManyDaysOlder(String firstPerson, String secondPerson) {
@@ -23,5 +24,11 @@ public class AddressBook {
         } else {
             femaleCount ++;
         }
+
+        if (oldest == null || person.getDayOfBirth().before(oldest.getDayOfBirth())) {
+            oldest = person;
+        }
+
+
     }
 }
